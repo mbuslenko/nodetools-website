@@ -7,46 +7,49 @@
 
 <script>
 	import '../app.css';
-	import card from '$lib/twitter-card.jpg';
+	import card from '$lib/idea-banner.png';
 	import Card from '$lib/Card.svelte';
 	import Footer from '$lib/Footer.svelte';
 	import { page } from '$app/stores';
 
 	/** @type {string} */
-	export let city;
+	export let version;
 
 	/** @type {string} */
-	export let ip;
+	export let currentStage;
 </script>
 
 <svelte:head>
-	<title>SvelteKit on the edge</title>
-	<meta name="description" content="HTML, dynamically rendered in a city near you" />
+	<title>Nodetools</title>
+	<meta name="description" content="Desktop application that does all the routine work for you" />
 	<meta name="twitter:card" content="summary_large_image" />
-	<meta name="twitter:site" content="@vercel" />
-	<meta name="twitter:creator" content="@sveltejs" />
-	<meta name="twitter:title" content="SvelteKit on the edge" />
-	<meta name="twitter:description" content="HTML, dynamically rendered in a city near you" />
+	<meta name="twitter:site" content="@NodetoolsApp" />
+	<meta name="twitter:creator" content="@NodetoolsApp" />
+	<meta name="twitter:title" content="Nodetools" />
+	<meta name="twitter:description" content="Desktop application that does all the routine work for you" />
 	<meta name="twitter:image" content="{$page.url.origin}{card}" />
-	<meta name="twitter:image:alt" content="The Vercel and Svelte logos" />
+	<meta name="twitter:image:alt" content="Banner" />
 </svelte:head>
 
 <Card />
 
 <main>
-	<h1><span>Hello from the edge!</span></h1>
+	<div class="title">
+		<h1><span>Your personal <br /> all-hands assistant</span></h1>
+		<p><span>Will be available soon</span></p>
+	</div>
 
 	<div class="info">
 		<div class="block">
 			<div class="contents">
-				<span>Your city</span>
-				<strong>{city}</strong>
+				<span>Current release</span>
+				<strong>{version}</strong>
 			</div>
 		</div>
 		<div class="block">
 			<div class="contents">
-				<span>Your IP address</span>
-				<strong>{ip}</strong>
+				<span>Current stage</span>
+				<strong class="blue">{currentStage}</strong>
 			</div>
 		</div>
 	</div>
@@ -63,18 +66,47 @@
 		box-sizing: border-box;
 	}
 
+	.title {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+		min-height: 100vh;
+		position: absolute;
+		bottom: 10vh;
+		left: 50%;
+		transform: translateX(-50%);
+	}
+	
+	p {
+		color:#7E8BB6
+	}
+
+	.blue {
+		background: linear-gradient(270deg, #0058f7 38.2%, #467ee3 100%);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+		text-fill-color: transparent;
+	}
+
 	h1 {
 		font-size: min(16vw, 4rem);
 		font-weight: 600;
 		margin: 0;
 		text-align: center;
-		position: absolute;
-		top: 10vh;
-		left: 0;
 		width: 100%;
 		padding: 0 2.5rem;
 		box-sizing: border-box;
 		line-height: 1;
+	}
+
+	.contents {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
 	}
 
 	h1 span {
@@ -110,6 +142,7 @@
 		margin: 0 0 0.2em 0;
 		text-transform: uppercase;
 		font-size: 0.6em;
+		text-align: center;
 	}
 
 	.block strong {
