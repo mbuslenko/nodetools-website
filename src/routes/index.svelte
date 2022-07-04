@@ -64,6 +64,7 @@
 		height: 100%;
 		padding: 2.5rem;
 		box-sizing: border-box;
+		overflow: hidden;
 	}
 
 	.title {

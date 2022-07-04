@@ -12,7 +12,6 @@ body {
 		'Open Sans', 'Helvetica Neue', sans-serif;
 	background: var(--bg);
 	color: var(--fg);
-	overflow: hidden;
 }
 
 ::selection {
